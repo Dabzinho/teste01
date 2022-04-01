@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+</head>
+<body>
+    <script>
+        var x=0
+        var i=0
+        var nomeprodutos=[]
+        var qtdprodutos=[]
+        var valorprodutos=[]
+        var c=0
+       
+        while(x!=5){
+            x = parseInt(prompt("Digite a opção desejada: \n 1 Incluir o produto \n 2 Vender produto \n 3 Atualizar estoque \n 4 Pesquisar produto \n 5 Sair do sistema"))
+            switch (x){
+                case 1 :
+                    nomeprodutos.push(prompt("Digite o nome do produto"))
+                    qtdprodutos.push(parseInt(prompt("Digite a quantidade em estoque")))
+                    valorprodutos.push(parseFloat(prompt("Digite o valor do produto")))
+                break;
+                   
+                case 2 :
+                   var pv = (prompt("Digite o nome do que sera vendido"))
+                    var qv = (parseInt(prompt("Digite a quantidade que sera vendida")))
+                        for(i=0;i<nomeprodutos.length;i++){
+                            if(pv==nomeprodutos[i]){
+                                if(qv<=qtdprodutos[i]){
+                                qtdprodutos[i]=(qtdprodutos[i] - qv)
+                                    alert("a quantidade restante é: "+qtdprodutos[i])
+                                    alert("o valor de venda foi: "+valorprodutos[i]*qv)
+                                }        
+                                    else{
+                                    alert("Não há em estoque")
+                                }
+                                   
+                                   
+                            }
+                        }  
+                break;  
+
+                case 3 :
+                    var pa = (prompt("Digite o nome do produtos que sera inserida"))
+                    var qa = (parseInt(prompt("Digite a quantidade que sera inserida")))
+                        for(i=0;i<nomeprodutos.length;i++){
+                            if(pa==nomeprodutos[i]){
+                                qtdprodutos[i]=qtdprodutos[i]+qa 
+                                alert("a quantidade atualizada é: "+qtdprodutos)                           
+                            }
+                            else{
+                            alert("Produto não cadastrado")
+                            }
+                        }                          
+                break;
+
+                case 4 :
+                    var pp = prompt("Digite o produto que sera verificado")
+                    for(i=0;i<nomeprodutos.length;i++){
+                        if(pp==nomeprodutos[i]){
+                            alert("A quantidade é: "+qtdprodutos[i])
+                            alert("O valor é: "+valorprodutos[i])
+                            c++
+                        }
+                    }
+                    if(c==0){
+                        alert("Produto inexistente")
+                    }
+
+                break;        
+
+
+            }  
+        }
+               
+
+   
+   
+   
+   
+   
+    </script>
+
+</body>
+</html>
